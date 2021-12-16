@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "theiaide-raimundo.fullname" . }}
+  name: {{ include "theia-ide-raimundo.fullname" . }}
   labels:
-    {{- include "theiaide-raimundo.labels" . | nindent 4 }}
+    {{- include "theia-ide-raimundo.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "theiaide-raimundo.fullname" . }}
+    name: {{ include "theia-ide-raimundo.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
